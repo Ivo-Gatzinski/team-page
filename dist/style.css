@@ -1,8 +1,9 @@
-body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
 h1 {
-    background: red;
-    color: white;
-    text-align: center;
-    padding: 25px;
+  color: white;
+  padding: 25px;
 }
