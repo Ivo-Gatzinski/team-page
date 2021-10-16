@@ -1,5 +1,5 @@
-const inquirer = require(inquirer);
-const fs = require(fs);
+const inquirer = require("inquirer");
+const fs = require("fs");
 const htmlWrite = require("./src/html");
 
 //ask user for info
