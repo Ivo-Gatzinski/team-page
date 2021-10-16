@@ -1,7 +1,40 @@
 const inquirer = require(inquirer);
-const html = require("./src/html");
+const fs = require(fs);
+const htmlWrite = require("./src/html");
 
 //ask user for info
+
+const promptUser = () => {
+    return inquirer.prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is your Team Manager'sname?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your employer ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email?",
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "What is the Manager's Office Number?",
+      },
+    ]);
+  };
+  
+  // Bonus using writeFileAsync as a promise
+  promptUser()
+    .then((answers) => fs.writeFile("./dist/index.html", htmlWrite(answers)))
+    .then(() => console.log("Successfully wrote to index.html"))
+    .catch((err) => console.error(err));
+  
 
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -15,4 +48,4 @@ const html = require("./src/html");
 // THEN I exit the application, and the HTML is generated
 
 //send info to html
-//call html
+//call htmlWrite
