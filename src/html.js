@@ -3,3 +3,7 @@ const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
 const Manager = require("./lib/manager");
 const Intern = require("./lib/intern");
+
+//get info from index
+//build/call employees
+//write html
