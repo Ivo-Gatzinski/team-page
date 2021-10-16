@@ -7,6 +7,11 @@ const fs = require("fs");
 function promptEngineer() {
   inquirer.prompt([
     {
+        type: "input",
+        name: "name",
+        message: "What is your engineer's name?",
+      },
+    {
       type: "input",
       name: "id",
       message: "What is your employer ID?",
@@ -26,6 +31,11 @@ function promptEngineer() {
 
 function promptIntern() {
   inquirer.prompt([
+    {
+        type: "input",
+        name: "name",
+        message: "What is your intern's name?",
+      },
     {
       type: "input",
       name: "id",
@@ -88,7 +98,7 @@ inquirer
       message: "What is the Manager's Office Number?",
     },
     {
-      type: "checkbox",
+      type: "list",
       name: "continue",
       message: "Would you like to add a member of your team?",
       choices: ["Engineer", "Intern", "Finish Building Team"],
