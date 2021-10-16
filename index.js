@@ -26,6 +26,12 @@ const promptUser = () => {
         name: "officeNumber",
         message: "What is the Manager's Office Number?",
       },
+      {
+          type: "checkbox",
+          name: "continue",
+          message: "Would you like to add a member of your team?",
+          choices: ["Engineer", "Intern", "Finish Building Team"],
+      }
     ]);
   };
   
