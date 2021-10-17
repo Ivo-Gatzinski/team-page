@@ -24,7 +24,7 @@ function promptEngineer() {
       name: "gitHub",
       message: "What is your GitHub user name?",
     },
-  ]).then(askUser());
+  ]).then(() => {askUser()});
 }
 
 function promptIntern() {
@@ -49,7 +49,7 @@ function promptIntern() {
       name: "school",
       message: "What is your school?",
     },
-  ]).then(askUser());
+  ]).then(() => {askUser()});
 }
 
 function promptManager() {
@@ -75,7 +75,7 @@ inquirer
       name: "officeNumber",
       message: "What is the Manager's Office Number?",
     },
-]).then(askUser());
+]).then(() => {askUser()});
 
 };
 
