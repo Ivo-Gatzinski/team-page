@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const htmlWrite = require("./src/html");
-
-//ask user for info
+// const htmlWrite = require("./src/htmlWrite");
 
 function promptEngineer() {
   inquirer.prompt([
@@ -104,8 +102,5 @@ function askUser() {
 };
 
 promptManager();
-
-
-// ask again if they want to add more, after adding team mate
 
 //call htmlWrite(answers);
