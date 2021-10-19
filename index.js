@@ -1,6 +1,18 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const htmlWrite = require("./src/htmlWrite");
+
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Manager = require("./lib/Manager");
+const Intern = require("./lib/Intern");
+
+const htmlWrite = require("./src/htmlWrite");
+
+let manager = {};
+
+const engineer = [];
+const intern = [];
+
 
 function promptEngineer() {
   inquirer.prompt([
@@ -21,10 +33,14 @@ function promptEngineer() {
     },
     {
       type: "input",
-      name: "gitHub",
+      name: "github",
       message: "What is your GitHub user name?",
     },
-  ]).then(() => {askUser()});
+  ]).then(() => {
+    
+    engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+
+    askUser()});
 }
 
 function promptIntern() {
@@ -49,7 +65,9 @@ function promptIntern() {
       name: "school",
       message: "What is your school?",
     },
-  ]).then(() => {askUser()});
+  ]).then(() => {
+    intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+    askUser()});
 }
 
 function promptManager() {
@@ -75,7 +93,9 @@ inquirer
       name: "officeNumber",
       message: "What is the Manager's Office Number?",
     },
-]).then(() => {askUser()});
+]).then(() => {
+    manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+    askUser()});
 
 };
 
@@ -96,6 +116,7 @@ function askUser() {
         } else if (answers.continue === "Intern") {
           promptIntern();
         } else {
+            // htmlWrite();
             console.log("Error!");
         }
       })
@@ -103,4 +124,5 @@ function askUser() {
 
 promptManager();
 
+//create instances of classes;
 //call htmlWrite(answers);
