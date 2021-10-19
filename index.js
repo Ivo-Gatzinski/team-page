@@ -6,14 +6,11 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 
-const htmlWrite = require("./src/htmlWrite");
+const htmlWrite = require("./src/html");
 
 let manager = {};
 const engineers = [];
 const interns = [];
-
-const team = engineers.concat(interns);
-
 
 function promptEngineer() {
   inquirer.prompt([
@@ -37,7 +34,7 @@ function promptEngineer() {
       name: "github",
       message: "What is your GitHub user name?",
     },
-  ]).then(() => {
+  ]).then((answers) => {
     
     engineers.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
 
@@ -66,7 +63,7 @@ function promptIntern() {
       name: "school",
       message: "What is your school?",
     },
-  ]).then(() => {
+  ]).then((answers) => {
     interns.push(new Intern(answers.name, answers.id, answers.email, answers.school));
     return askUser()});
 }
@@ -94,7 +91,7 @@ inquirer
       name: "officeNumber",
       message: "What is the Manager's Office Number?",
     },
-]).then(() => {
+]).then((answers) => {
     manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
     return askUser()});
 

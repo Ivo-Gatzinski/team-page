@@ -4,9 +4,66 @@ const fs = require("fs");
 
 function htmlWrite (manager, engineers, interns) { 
 
-//  const htmlJoin =  htmlManager concat htmlEngineer concat htmlInterns
+// separate html bits for each type
+
+function htmlManager (manager) {
+
+return `<div class="col m-2">
+<div class="card bg-light border-success" style="width: 14rem;">
+    <div class="card-body text-white bg-success">
+      <h4 class="card-title">${manager.name}</h4>
+      <h5 class="card-text">${manager.getRole()}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${manager.id}</li>
+      <li class="list-group-item">Email: <a href="mailto:email@example.com">${manager.email}/a></li>
+      <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+    </ul>
+    </div>
+</div>
+</div>`
+}
+
+function htmlEngineer (engineers) {
+  return `<div class="col m-2">
+  <div class="card bg-light border-success" style="width: 14rem;">
+      <div class="card-body text-white bg-success">
+        <h4 class="card-title">${engineers[0].name}</h4>
+        <h5 class="card-text">${engineers[0].getRole()}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${engineers[0].id}</li>
+        <li class="list-group-item">Email: <a href="mailto:email@example.com">${engineers[0].email}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">${engineers[0].github}</a></li>
+      </ul>
+      </div>
+  </div>
+</div>`
+}
+
+function htmlIntern (interns) {
+  return `<div class="col m-2">
+            <div class="card bg-light border-success" style="width: 14rem;">
+                <div class="card-body text-white bg-success">
+                  <h4 class="card-title">${interns[0].name}</h4>
+                  <h5 class="card-text">${interns[0].getRole()}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">ID: ${interns[0].id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:email@example.com">${interns[0].email}</a></li>
+                  <li class="list-group-item">School: ${interns[0].school}</li>
+                </ul>
+                </div>
+            </div>
+        </div>`
+}
+
+//join html bits
+
+const htmlJoin =  `${htmlManager()}${htmlEngineer()}${htmlIntern()}`
 
 // insert into html
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,76 +81,7 @@ My Team
 </h1>
     </header>
     <main class="container row mx-auto">
-        <div class="col m-2">
-            <div class="card bg-light border-success" style="width: 14rem;">
-                <div class="card-body text-white bg-success">
-                  <h4 class="card-title">John</h4>
-                  <h5 class="card-text">Manager</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: 1</li>
-                  <li class="list-group-item">Email: <a href="mailto:email@example.com">john@john.com</a></li>
-                  <li class="list-group-item">Office Number: 1</li>
-                </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col m-2">
-            <div class="card bg-light border-success" style="width: 14rem;">
-                <div class="card-body text-white bg-success">
-                  <h4 class="card-title">John</h4>
-                  <h5 class="card-text">Engineer</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: 2</li>
-                  <li class="list-group-item">Email: <a href="mailto:email@example.com">john@john.com</a></li>
-                  <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">john-john</a></li>
-                </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col m-2">
-          <div class="card bg-light border-success" style="width: 14rem;">
-              <div class="card-body text-white bg-success">
-                <h4 class="card-title">John</h4>
-                <h5 class="card-text">Engineer</h5>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: 3</li>
-                <li class="list-group-item">Email: <a href="mailto:email@example.com">john@john.com</a></li>
-                <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">john-john</a></li>
-              </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col m-2">
-        <div class="card bg-light border-success" style="width: 14rem;">
-            <div class="card-body text-white bg-success">
-              <h4 class="card-title">John</h4>
-              <h5 class="card-text">Engineer</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: 4</li>
-              <li class="list-group-item">Email: <a href="mailto:email@example.com">john@john.com</a></li>
-              <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">john-john</a></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-        <div class="col m-2">
-            <div class="card bg-light border-success" style="width: 14rem;">
-                <div class="card-body text-white bg-success">
-                  <h4 class="card-title">John</h4>
-                  <h5 class="card-text">Intern</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: 5</li>
-                  <li class="list-group-item">Email: <a href="mailto:email@example.com">john@john.com</a></li>
-                  <li class="list-group-item">School: John University</li>
-                </ul>
-                </div>
-            </div>
-        </div>
+      ${htmlJoin}
     </main>
 </body>
 </html>
@@ -105,9 +93,5 @@ return fs.writeFile("../dist/index.html", html, (err) => {
 });
     
 }
-
-//get info from index
-//write html
-
 
 module.exports = htmlWrite;
