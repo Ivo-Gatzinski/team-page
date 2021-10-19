@@ -9,9 +9,10 @@ const Intern = require("./lib/Intern");
 const htmlWrite = require("./src/htmlWrite");
 
 let manager = {};
-
 const engineers = [];
 const interns = [];
+
+const team = engineers.concat(interns);
 
 
 function promptEngineer() {

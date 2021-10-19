@@ -4,7 +4,10 @@ const fs = require("fs");
 
 function htmlWrite (manager, engineers, interns) { 
 
-const html = `<!DOCTYPE html>
+//  const htmlJoin =  htmlManager concat htmlEngineer concat htmlInterns
+
+// insert into html
+  const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -95,7 +98,11 @@ My Team
 </body>
 </html>
 `
-return fs.writeFile("../dist/index.html", html);
+return fs.writeFile("../dist/index.html", html, (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
     
 }
 
