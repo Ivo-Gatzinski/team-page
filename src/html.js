@@ -9,7 +9,6 @@ function htmlWrite (answers) {
 }
 
 //get info from index
-//build/call employees
 //write html
 
 

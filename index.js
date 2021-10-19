@@ -10,8 +10,8 @@ const htmlWrite = require("./src/htmlWrite");
 
 let manager = {};
 
-const engineer = [];
-const intern = [];
+const engineers = [];
+const interns = [];
 
 
 function promptEngineer() {
@@ -38,9 +38,9 @@ function promptEngineer() {
     },
   ]).then(() => {
     
-    engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+    engineers.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
 
-    askUser()});
+    return askUser()});
 }
 
 function promptIntern() {
@@ -66,8 +66,8 @@ function promptIntern() {
       message: "What is your school?",
     },
   ]).then(() => {
-    intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-    askUser()});
+    interns.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+    return askUser()});
 }
 
 function promptManager() {
@@ -95,7 +95,7 @@ inquirer
     },
 ]).then(() => {
     manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-    askUser()});
+    return askUser()});
 
 };
 
@@ -110,19 +110,18 @@ function askUser() {
       },
     ]).then((answers) => {
         if (answers.continue === "Finish Building Team") {
-          console.log("Done!");
+          htmlWrite(manager, engineers, interns);
         } else if (answers.continue === "Engineer") {
           promptEngineer();
         } else if (answers.continue === "Intern") {
           promptIntern();
         } else {
-            // htmlWrite();
-            console.log("Error!");
+        console.log("Error!");
         }
       })
 };
 
 promptManager();
 
-//create instances of classes;
+//send data to htmlWrite the right way
 //call htmlWrite(answers);
