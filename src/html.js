@@ -39,7 +39,7 @@ function htmlEngineer (engineers) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${element.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
-        <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">${engineers[0].github}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${element.github}" target="_blank">${element.github}</a></li>
       </ul>
       </div>
   </div>

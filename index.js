@@ -20,17 +20,17 @@ function promptEngineer() {
     {
       type: "input",
       name: "id",
-      message: "What is your employer ID?",
+      message: "What is your engineer's employer ID?",
     },
     {
       type: "input",
       name: "email",
-      message: "What is your email?",
+      message: "What is your engineer's email?",
     },
     {
       type: "input",
       name: "github",
-      message: "What is your GitHub user name?",
+      message: "What is your engineer's GitHub user name?",
     },
   ]).then((answers) => {
     
@@ -49,17 +49,17 @@ function promptIntern() {
     {
       type: "input",
       name: "id",
-      message: "What is your employer ID?",
+      message: "What is your intern's employer ID?",
     },
     {
       type: "input",
       name: "email",
-      message: "What is your email?",
+      message: "What is your intern's email?",
     },
     {
       type: "input",
       name: "school",
-      message: "What is your school?",
+      message: "What is your intern's school?",
     },
   ]).then((answers) => {
     interns.push(new Intern(answers.name, answers.id, answers.email, answers.school));
@@ -77,17 +77,17 @@ inquirer
     {
       type: "input",
       name: "id",
-      message: "What is your employer ID?",
+      message: "What is your manager's employer ID?",
     },
     {
       type: "input",
       name: "email",
-      message: "What is your email?",
+      message: "What is your manager's email?",
     },
     {
       type: "input",
       name: "officeNumber",
-      message: "What is the Manager's Office Number?",
+      message: "What is the manager's Office Number?",
     },
 ]).then((answers) => {
     manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
