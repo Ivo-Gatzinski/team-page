@@ -2,6 +2,9 @@
 
 const fs = require("fs");
 
+const engineerCards = [];
+const internCards = [];
+
 function htmlWrite (manager, engineers, interns) { 
 
 // separate html bits for each type
@@ -16,7 +19,7 @@ return `<div class="col m-2">
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${manager.id}</li>
-      <li class="list-group-item">Email: <a href="mailto:email@example.com">${manager.email}</a></li>
+      <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
       <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
     </ul>
     </div>
@@ -25,42 +28,54 @@ return `<div class="col m-2">
 }
 
 function htmlEngineer (engineers) {
-  return `<div class="col m-2">
+ 
+  engineers.forEach((element) => {
+  engineerCards.push(`<div class="col m-2">
   <div class="card bg-light border-success" style="width: 14rem;">
       <div class="card-body text-white bg-success">
-        <h4 class="card-title">${engineers[0].name}</h4>
-        <h5 class="card-text">${engineers[0].getRole()}</h5>
+        <h4 class="card-title">${element.name}</h4>
+        <h5 class="card-text">${element.getRole()}</h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${engineers[0].id}</li>
-        <li class="list-group-item">Email: <a href="mailto:email@example.com">${engineers[0].email}</a></li>
+        <li class="list-group-item">ID: ${element.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
         <li class="list-group-item">GitHub: <a href="https://github.com/john-john" target="_blank">${engineers[0].github}</a></li>
       </ul>
       </div>
   </div>
-</div>`
+</div>`)});
+
 }
 
 function htmlIntern (interns) {
-  return `<div class="col m-2">
+ 
+  interns.forEach((element) => {
+  internCards.push(`<div class="col m-2">
             <div class="card bg-light border-success" style="width: 14rem;">
                 <div class="card-body text-white bg-success">
-                  <h4 class="card-title">${interns[0].name}</h4>
-                  <h5 class="card-text">${interns[0].getRole()}</h5>
+                  <h4 class="card-title">${element.name}</h4>
+                  <h5 class="card-text">${element.getRole()}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: ${interns[0].id}</li>
-                  <li class="list-group-item">Email: <a href="mailto:email@example.com">${interns[0].email}</a></li>
-                  <li class="list-group-item">School: ${interns[0].school}</li>
+                  <li class="list-group-item">ID: ${element.id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
+                  <li class="list-group-item">School: ${element.school}</li>
                 </ul>
                 </div>
             </div>
-        </div>`
+        </div>`)
+  });
 }
+
+htmlEngineer(engineers);
+htmlIntern(interns);
 
 //join html bits
 
-const htmlJoin =  `${htmlManager(manager)}${htmlEngineer(engineers)}${htmlIntern(interns)}`
+const htmlInterns = internCards.join("");
+const htmlEngineers = engineerCards.join("");
+
+const htmlJoin = `${htmlManager(manager)}${htmlEngineers}${htmlInterns}`
 
 // insert into html
 
