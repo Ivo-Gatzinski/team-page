@@ -16,7 +16,7 @@ return `<div class="col m-2">
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${manager.id}</li>
-      <li class="list-group-item">Email: <a href="mailto:email@example.com">${manager.email}/a></li>
+      <li class="list-group-item">Email: <a href="mailto:email@example.com">${manager.email}</a></li>
       <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
     </ul>
     </div>
@@ -60,7 +60,7 @@ function htmlIntern (interns) {
 
 //join html bits
 
-const htmlJoin =  `${htmlManager()}${htmlEngineer()}${htmlIntern()}`
+const htmlJoin =  `${htmlManager(manager)}${htmlEngineer(engineers)}${htmlIntern(interns)}`
 
 // insert into html
 
@@ -86,7 +86,7 @@ My Team
 </body>
 </html>
 `
-return fs.writeFile("../dist/index.html", html, (err) => {
+return fs.writeFile("dist/index.html", html, (err) => {
   if (err) {
     console.log(err);
   }
