@@ -18,7 +18,7 @@ The application will be invoked by using the following command:
 ```bash
 node index.js
 ```
-Here is a [link](https://drive.google.com/file/d/16Mv5Pg6RdDstCJ52oOO7MnJ3Ynpy2_7_/view?usp=sharing) to the video demonstrating the functionality of the app. This is a screenshot of the functionality of the app: ![screenshot](screenshot.png)
+Here is a [link](https://drive.google.com/file/d/1DliJFp3OKPsjxrIblFZQjJywJtcdo3qu/view?usp=sharing) to the video demonstrating the functionality of the app. This is a screenshot of the functionality of the app: ![screenshot](screenshot.png)
 ## Questions
 Please email me at [my email address](ucsd.camp.21@ucsd.edu) if you have any questions!
 ## License
