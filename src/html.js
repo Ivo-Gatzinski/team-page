@@ -1,13 +1,9 @@
-
-
 const fs = require("fs");
 
 const engineerCards = [];
 const internCards = [];
 
 function htmlWrite (manager, engineers, interns) { 
-
-// separate html bits for each type
 
 function htmlManager (manager) {
 
@@ -70,14 +66,11 @@ function htmlIntern (interns) {
 htmlEngineer(engineers);
 htmlIntern(interns);
 
-//join html bits
-
 const htmlInterns = internCards.join("");
 const htmlEngineers = engineerCards.join("");
 
 const htmlJoin = `${htmlManager(manager)}${htmlEngineers}${htmlInterns}`
 
-// insert into html
 
   const html = `<!DOCTYPE html>
 <html lang="en">
